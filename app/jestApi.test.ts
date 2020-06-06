@@ -3,7 +3,7 @@ describe("Sample Jest API", () => {
     expect(1).toBe(1)
 
     // This will failed
-    // expect({a: 1}).toEq({a: 1})
+    // expect({a: 1}).toBe({a: 1})
   })
 
   it("toEqual", () => {
@@ -52,6 +52,26 @@ describe("Sample Jest API", () => {
     // Testing the above
     expect(() => thisFunctionWillThrowFor0(0)).toThrow()
     expect(() => thisFunctionWillThrowFor0(1)).not.toThrow()
+  })
+
+  function thisWillResolvePromise (): Promise<number> {
+    return Promise.resolve(1)
+  }
+
+  function thisWillRejectPromise (): Promise<number> {
+    return Promise.reject("Error")
+  }
+
+  it("Can handle promise", () => {
+    return thisWillResolvePromise()
+  })
+
+  it("Can handle async", async () => {
+    await thisWillResolvePromise()
+  })
+
+  it("But you need to return promise", async () => {
+    thisWillRejectPromise()
   })
 
   // More information: https://jestjs.io/docs/en/getting-started
