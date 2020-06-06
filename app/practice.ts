@@ -8,7 +8,7 @@ export function sentence(words: string[]): string {
   const wordsExceptLastWord = words.slice(0, words.length - 1)
 
   return joinWords(
-    [wordsExceptLastWord.join(", "), lastWord],
+    [wordsExceptLastWord.join(","), lastWord],
     " and "
   )
 }
