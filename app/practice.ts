@@ -4,6 +4,9 @@ function joinWords(words: string[], separator: string): string {
 }
 
 export function sentence(words: string[]): string {
+  if (words.length === 0) {
+    return ""
+  }
   const lastWord = words[words.length - 1]
   const wordsExceptLastWord = words.slice(0, words.length - 1)
 
